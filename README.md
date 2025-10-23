@@ -2,4 +2,5 @@
 STILL EXTREMELY WORK IN PROGRESS!!
 
 Credits:
-[DaniElectra's WinSock 2 implementation](https://github.com/DaniElectra/winsock351)
+
+Native WS2 support: [DaniElectra's WinSock 2 implementation](https://github.com/DaniElectra/winsock351)
