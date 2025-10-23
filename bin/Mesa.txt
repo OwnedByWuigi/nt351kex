@@ -1,0 +1,18 @@
+Mesa 3D Graphics Library
+
+http://www.mesa3d.org/
+
+This is an *unsupported* Mesa 5.1 binary for Win32,
+with pure-software 3D rendering (compiled by VC++ 6.0).
+
+For more details, license status, source code, etc.
+refer to the Mesa website, but don't forget official
+Mesa is distributed in source only form. This binary
+is for your convenience only, and you use it at your
+own risks, it is *not* supported by the Mesa project.
+
+That said, the Win32 world is in need of dedicated
+support for Mesa, if you feel up to the job and want
+to help move this binary from "completely unsupported"
+to "at least updated once in a while" (or better), 
+feel free to join the Mesa project and contribute :)
