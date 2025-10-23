@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build installer
+      shell: cmd
+      run: |
+        setup\nsis\makensis.exe setup\nt351kex.nsi
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: setup
+        path: |
+          setup/nt351kex.exe
+
+    - name: Upload Continuous Release
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'ownedbywuigi/nt351kex' }}
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl -fLOSs --retry 2 --retry-delay 60 https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        bash upload.sh setup/nt351kex.exe
