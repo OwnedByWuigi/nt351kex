@@ -1,6 +1,12 @@
-# NT 3.51 KernelEx
-STILL EXTREMELY WORK IN PROGRESS!!
+<h1>NT 3.51 KernelEx</h1>
+
+<h2>STILL EXTREMELY WORK IN PROGRESS!! DO NOT USE IT ON A MAIN MACHINE!!</h2>
+
+<img src="./docs/install.png" height="480px">
 
 Credits:
 
-Native WS2 support: [DaniElectra's WinSock 2 implementation](https://github.com/DaniElectra/winsock351)
+<ul>
+<li>
+Native WS2 support: <a href="https://github.com/DaniElectra/winsock351">DaniElectra's WinSock2 implementation</a>
+</li>
