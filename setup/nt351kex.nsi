@@ -1,8 +1,16 @@
-; Name of the installer file
+!include "MUI2.nsh"
+Name "Windows NT 3.51 Extended Kernel"
 OutFile "nt351kex.exe"
+!define MUI_ICON "setup.ico"
+
+
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_INSTFILES
+
+!insertmacro MUI_LANGUAGE "English"
 
 ; Name of the installer section
-Section "NT 3.51 KernelEx"
+Section "Adding DLLs"
 
   ; Set the installation path
   SetOutPath "$SYSDIR"
