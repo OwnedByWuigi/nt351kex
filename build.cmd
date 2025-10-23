@@ -1,0 +1,1 @@
+setup\nsis\makensis.exe setup\nt351kex.nsi
