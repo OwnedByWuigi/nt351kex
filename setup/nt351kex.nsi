@@ -13,5 +13,15 @@ Section "Adding System32 DLLs"
   SetOutPath "$SYSDIR"
   ; Add application files to the installer
   File /r "..\bin\*"
-
+SectionEnd
+Section "Adding modern fonts"
+  SetOutPath "C:\winnt35\system"
+  File /r "..\fonts\*"
+SectionEnd
+Section "Fonts backup"
+  CreateDirectory "C:\winnt35\fonts"
+  ; Copy files from old dir to new dir for app compatibility (already on disk)
+  ExecWait 'cmd /c xcopy "C:\winnt35\system\*.fon" "C:\winnt35\fonts\" /E /Y /I'
+  ExecWait 'cmd /c xcopy "C:\winnt35\system\*.ttf" "C:\winnt35\fonts\" /E /Y /I'
+  ExecWait 'cmd /c start /min regedt32 /i "C:\path\myfile.reg"'
 SectionEnd
