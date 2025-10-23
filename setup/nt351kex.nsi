@@ -9,10 +9,7 @@ OutFile "nt351kex.exe"
 
 !insertmacro MUI_LANGUAGE "English"
 
-; Name of the installer section
-Section "Adding DLLs"
-
-  ; Set the installation path
+Section "Adding System32 DLLs"
   SetOutPath "$SYSDIR"
   ; Add application files to the installer
   File /r "..\bin\*"
