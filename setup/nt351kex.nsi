@@ -29,6 +29,11 @@ Section "Adding System32 DLLs"
   File /r "..\bin\system32\*"
 SectionEnd
 
+Section "Adding Modern DLLs in another dir"
+  SetOutPath "$SYSDIR"
+  File /r "..\bin\modern2\*"
+SectionEnd
+
 Section "Adding modern fonts"
   SetOutPath "C:\temp"
   File /r "..\fonts\*"
