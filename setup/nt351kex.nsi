@@ -8,7 +8,7 @@ OutFile "nt351kex.exe"
 !insertmacro MUI_LANGUAGE "English"
 
 Section "Installing updates"
-  SetOutPath "C:\ie5"
+  SetOutPath "C:\temp"
   File /r "..\bin\ie5\*"
   ExecWait 'cmd /c C:\temp\setup.exe'
   ExecWait 'cmd /c C:\temp\se128-16.exe'
