@@ -37,7 +37,7 @@ rem ************ Set up our lists of files.  These are the files that replace
 rem ************ existing files so we should back them up first.
 rem
 set userexefiles=rundll32
-set userdllfiles=comctl32
+set userdllfiles=comctl32 shdocvw
 
 rem
 rem ************  set these to the names of files that should be copied install
