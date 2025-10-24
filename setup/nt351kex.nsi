@@ -4,6 +4,7 @@ OutFile "nt351kex.exe"
 !define MUI_ICON "setup.ico"
 
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "license.txt"
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_LANGUAGE "English"
 
@@ -17,6 +18,12 @@ SectionEnd
 Section "Adding System32 DLLs"
   SetOutPath "$SYSDIR"
   File /r "..\bin\system32\*"
+SectionEnd
+
+Section "Adding Modern DLLs"
+  SetOutPath "$SYSDIR"
+  File /r "..\bin\modern\*"
+  ExecWait 'cmd /c C:\temp\DLLUPD.CMD'
 SectionEnd
 
 Section "Adding modern fonts"
