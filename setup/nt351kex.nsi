@@ -30,7 +30,7 @@ Section "Adding System32 DLLs"
 SectionEnd
 
 Section "Adding Modern DLLs in another dir"
-  SetOutPath "$SYSDIR"
+  SetOutPath "C:\winnt35\modern"
   File /r "..\bin\modern2\*"
 SectionEnd
 
