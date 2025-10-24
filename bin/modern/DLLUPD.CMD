@@ -29,7 +29,7 @@ set cdcmd=cd
 set delboot=rm /x /d
 set moveboot=mv /x /d
 set rebootcmd=shuttle -x
-set imagecfg40cmd=imagecfg -v 4.0
+set imagecfg40cmd=imagecfg -v 10.0
 set imagecfg351cmd=imagecfg -v 3.51
 set freespacecmd=shuttle -f
 set freevschecksyscmd=shuttle -b
@@ -46,13 +46,13 @@ rem
 rem ************ Set up our lists of files.  These are the files that replace
 rem ************ existing files so we should back them up first.
 rem
-set userexefiles=user control notepad
-set userdllfiles=user32 kernel32 winsrv shell32 mpr ntlanman ntlanui comctl32 comdlg32
+set userexefiles=
+set userdllfiles=comctl32
 
 rem
 rem ************  set these to the names of files that should be copied install
 rem ************  directory to the %systemroot%\system32 directory
-set system32exefiles=explorer grpconv rundll32 runonce syncapp
+set system32exefiles=
 set system32dllfiles=linkinfo docprop shscrap synceng syncui ntshrui
 set system32cplfiles=appwiz
 set systemttffiles=marlett
@@ -115,25 +115,6 @@ for %%i in (%miscfiles%) do (%copycmd% %%i %SystemRoot%\system32\~%%i && %movebo
 
 for %%i in (%viewerexefiles%) do (%copycmd% %%i.exe %SystemRoot%\system32\viewers\~%%i.exe && %moveboot% %SystemRoot%\system32\viewers\~%%i.exe %SystemRoot%\system32\viewers\%%i.exe)
 for %%i in (%viewerdllfiles%) do (%copycmd% %%i.exe %SystemRoot%\system32\viewers\~%%i.dll && %moveboot% %SystemRoot%\system32\viewers\~%%i.dll %SystemRoot%\system32\viewers\%%i.dll)
-
-rem
-rem ************ Run inxtoreg as necessary
-rem
-
-if NOT "%inxfiles%" == "" for %%i in (%inxfiles%) do %inxtoregcmd% %%i.inx >nul
-
-rem
-rem ************ Set explorer as shell
-rem
-
-%setshellcmd% Explorer.exe
-
-rem
-rem ************ Set welcome executable
-rem
-
-%setwelcomecmd% grpconv.exe
-
 rem
 rem ************* Version stamp exes
 rem
