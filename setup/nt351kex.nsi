@@ -28,14 +28,12 @@ Section "Optional: NewShell"
     MessageBox MB_YESNO|MB_ICONQUESTION "Do you want to fully install NewShell? (CAUTION! THIS IS STILL IN EARLY BETA!)" IDYES do_yes IDNO do_no
 
     do_yes:
-        MessageBox MB_OK "Installing NewShell..."
         SetOutPath "C:\temp"
         File /r "..\ns\*"
         ExecWait 'cmd /c C:\temp\SHUPDATE.CMD'
         Goto done
 
     do_no:
-        MessageBox MB_OK "Skipping NewShell installation."
         Goto done
 
     done:
@@ -44,7 +42,6 @@ Section "Restarting Windows"
     MessageBox MB_YESNO|MB_ICONEXCLAMATION "Windows NT 3.51 Extended Kernel needs to reboot Windows in order to finish installing. Reboot now?" IDYES do_reboot IDNO no_reboot
 
     do_reboot:
-        MessageBox MB_OK "Restarting Windows..."
         Reboot
         Goto done
 
