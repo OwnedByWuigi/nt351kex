@@ -1,17 +1,7 @@
 @echo off
-rem
-rem  This script installs the Shell Technology Preview
-rem  on Windows NT 3.51
-rem
 
 SETLOCAL
 set action=install
-
-:ArgParse
-if "%1" == "/u" set action=uninstall& shift& goto ArgParse
-if "%1" == "/U" set action=uninstall& shift& goto ArgParse
-
-set releasename=Shell Technology Preview
 
 if NOT "%1" == "" goto usage
 
@@ -29,7 +19,7 @@ set cdcmd=cd
 set delboot=rm /x /d
 set moveboot=mv /x /d
 set rebootcmd=shuttle -x
-set imagecfg40cmd=imagecfg -v 10.0
+set imagecfg40cmd=imagecfg -v 3.51
 set imagecfg351cmd=imagecfg -v 3.51
 set freespacecmd=shuttle -f
 set freevschecksyscmd=shuttle -b
@@ -46,17 +36,17 @@ rem
 rem ************ Set up our lists of files.  These are the files that replace
 rem ************ existing files so we should back them up first.
 rem
-set userexefiles=
+set userexefiles=rundll32
 set userdllfiles=comctl32
 
 rem
 rem ************  set these to the names of files that should be copied install
 rem ************  directory to the %systemroot%\system32 directory
 set system32exefiles=
-set system32dllfiles=linkinfo docprop shscrap synceng syncui ntshrui
+set system32dllfiles=
 set system32cplfiles=appwiz
 set systemttffiles=marlett
-set viewerexefiles=quikview
+set viewerexefiles=
 set viewerdllfiles=
 set miscfiles=
 

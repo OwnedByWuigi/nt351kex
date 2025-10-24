@@ -29,22 +29,21 @@ Section "Adding System32 DLLs"
   File /r "..\bin\system32\*"
 SectionEnd
 
+Section "Adding modern fonts"
+  SetOutPath "C:\temp"
+  File /r "..\fonts\*"
+SectionEnd
+
 Section "Adding Modern DLLs"
   SetOutPath "C:\temp"
   File /r "..\bin\modern\*"
   ExecWait 'cmd /c C:\temp\DLLUPD.CMD'
 SectionEnd
 
-Section "Adding modern fonts"
-  SetOutPath "C:\winnt35\system"
-  File /r "..\fonts\*"
-SectionEnd
-
 Section "Fonts backup"
   CreateDirectory "C:\winnt35\fonts"
   ExecWait 'cmd /c copy "C:\winnt35\system\*.fon" "C:\winnt35\fonts\"'
   ExecWait 'cmd /c copy "C:\winnt35\system\*.ttf" "C:\winnt35\fonts\"'
-  ExecWait 'cmd /c start /min regedt32 /i "$SYSDIR\modfonts.reg"'
 SectionEnd
 
 Section "Optional: NewShell"
