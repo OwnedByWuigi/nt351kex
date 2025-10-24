@@ -9,10 +9,19 @@ OutFile "nt351kex.exe"
 !insertmacro MUI_LANGUAGE "English"
 
 Section "Installing updates"
-  SetOutPath "C:\temp"
-  File /r "..\bin\ie5\*"
-  ExecWait 'cmd /c C:\temp\setup.exe'
-  ExecWait 'cmd /c C:\temp\se128-16.exe'
+  MessageBox MB_YESNO|MB_ICONQUESTION "Do you want to install IE5? (Optional but better for more app compatibility)" IDYES do_yes IDNO do_no
+
+    do_yes:
+      SetOutPath "C:\temp"
+      File /r "..\bin\ie5\*"
+      ExecWait 'cmd /c C:\temp\setup.exe'
+      ExecWait 'cmd /c C:\temp\se128-16.exe'
+      Goto done
+
+    do_no:
+        Goto done
+
+    done:
 SectionEnd
 
 Section "Adding System32 DLLs"
@@ -21,7 +30,7 @@ Section "Adding System32 DLLs"
 SectionEnd
 
 Section "Adding Modern DLLs"
-  SetOutPath "$SYSDIR"
+  SetOutPath "C:\temp"
   File /r "..\bin\modern\*"
   ExecWait 'cmd /c C:\temp\DLLUPD.CMD'
 SectionEnd
