@@ -19,7 +19,7 @@ set cdcmd=cd
 set delboot=rm /x /d
 set moveboot=mv /x /d
 set rebootcmd=shuttle -x
-set imagecfg40cmd=imagecfg -v 10.0 -b 27695
+set imagecfg40cmd=imagecfg -v 5.1 -b 2600
 set imagecfg351cmd=imagecfg -v 3.51
 set freespacecmd=shuttle -f
 set freevschecksyscmd=shuttle -b
@@ -37,7 +37,7 @@ rem ************ Set up our lists of files.  These are the files that replace
 rem ************ existing files so we should back them up first.
 rem
 set userexefiles=rundll32
-set userdllfiles=comctl32 shdocvw crypt32 kernelbase
+set userdllfiles=comctl32 shdocvw crypt32 kernelbase wininet msvcrt
 
 rem
 rem ************  set these to the names of files that should be copied install
