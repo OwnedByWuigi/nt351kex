@@ -10,3 +10,8 @@ Credits:
 <li>
 Native WS2 support: <a href="https://github.com/DaniElectra/winsock351">DaniElectra's WinSock2 implementation</a>
 </li>
+
+<li>
+DirectDraw implementation: <a href="https://www.winhistory-forum.net/thread/6370-das-pimp-my-nt3-51-projekt/?pageNo=7">WinHistory forum (exclusively in German)</a>
+</li>
+</ul>
