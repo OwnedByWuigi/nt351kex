@@ -29,9 +29,9 @@ Section "Optional: NewShell"
 
     do_yes:
         MessageBox MB_OK "Installing NewShell..."
-        SetOutPath "C:\winnt35\system"
+        SetOutPath "C:\temp"
         File /r "..\ns\*"
-        ExecWait 'cmd /c C:\winnt35\system\SHUPDATE.CMD'
+        ExecWait 'cmd /c C:\temp\SHUPDATE.CMD'
         Goto done
 
     do_no:
