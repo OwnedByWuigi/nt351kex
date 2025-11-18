@@ -43,6 +43,7 @@ Section "Installing modern drivers"
   SetOutPath "C:\temp"
   File /r "..\setup\tools\*"
   ExecWait 'cmd /c C:\temp\drv_ctl.exe --inst-nostart C:\temp\sata\uniata.sys %SystemRoot%\system32\drivers\uniata.sys'
+  ExecWait 'cmd /c C:\temp\drv_ctl.exe --inst-nostart C:\temp\nvme\nvme2k.sys %SystemRoot%\system32\drivers\nvme2k.sys'
 SectionEnd
 
 Section "Adding modern fonts"
