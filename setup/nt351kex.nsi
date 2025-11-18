@@ -34,6 +34,17 @@ Section "Adding Modern DLLs in another dir"
   File /r "..\bin\modern2\*"
 SectionEnd
 
+Section "Adding modern drivers"
+  SetOutPath "$SYSDIR\drivers\"
+  File /r "..\bin\drivers\*"
+SectionEnd
+
+Section "Installing modern drivers"
+  SetOutPath "C:\temp"
+  File /r "..\setup\tools\*"
+  ExecWait 'cmd /c C:\temp\drv_ctl.exe --inst-nostart C:\temp\sata\uniata.sys %SystemRoot%\system32\drivers\uniata.sys'
+SectionEnd
+
 Section "Adding modern fonts"
   SetOutPath "C:\temp"
   File /r "..\fonts\*"
